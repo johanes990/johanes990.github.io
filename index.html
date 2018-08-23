@@ -1,46 +1,89 @@
 <DOCTYPE HTML>
 <html>
+
 <head>
-    <maeta churset="UTF-8"> </maeta>
+    <meta churset="UTF-8"> </maeta>
+    <meta http-eauiv="X-UA-Compatible" content="=" ie="edge&quot;">
+    <meta name="viewport" content="width = device=width, initial-scale= 1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script>
-        function perform0peration(udregn) {
-         var x = parseInt(document.getElementById('text1').value);
-         var y = parseInt(document.getElementById('text2').value); 
-         var result;
-            if (udregn == "+")
-                result = x + y;
-            else if (udregn == "-")
-                result = x - y;
-            else if (udregn == "*")
-                result = x * y;
-              else if (udregn == "P")
-                result = y / x * 100 + '%';
-            else if (udregn == "/")
-                result = x / y;
-                 if (y == 0)
-                    result = "Hallo du er dum";
-           else if (udregn == "P")
-               result = y / x * 100 + '%'; 
-            
-         document.getElementById('giver').innerHTML = result;
+        function result() {
+            lomme.display.value =eval(lomme.display.value)
+            var dum = lomme.display.value;
+            if (dum == Infinity) {
+                alert("fuck du er dum, man kan ikke / med 0. her har du et link til hvorfor man ikke kan: https://www.youtube.com/watch?v=vz3YhaBK-Mk")
+                lomme.display.value= '';
+                }
+
+            }
         
-        }
-    
-    
+        
+        function mydel(event)
+        {      
+    var DEL = event.keyCode;
+    if (DEL == 46) {
+     alert("DELETET!!")
+        lomme.display.value= '';
+    }
+}
     </script>
+    <style>
+        .button {
+            width: 70;
+            height: 70;
+            
+        }
+.jumbotron{
+    background-color:#2E2D88;
+    color:black;
+}
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+.nav-tabs {
+    margin-bottom: 0;
+}
+</style>
+ <title> Lommergner </title>
 </head>
 
-    <body> <center>
-        <input type="text" id="text1" />
-        <button onclick="perform0peration('+')"> + </button>
-        <button onclick="perform0peration('-')"> - </button>
-        <button onclick="perform0peration('*')"> * </button>
-        <button onclick="perform0peration('/')"> / </button>
-        <button onclick="perform0peration('P')"> P </button>
-        <input type="text" id="text2" />
-        <p> Det giver: </p>  
-        <p id="giver"> </p>
-</center>
-    </body>
-    
-</html>
+<body> <center>
+    <div class="container">
+            <div class="page-header"> <h1> Lommeregner</h1></div>
+            <div class="jumbotron">
+    <form name="lomme">
+        <input type ="text" onkeydown="mydel (event)" name="display" id="text1" > 
+        <button type="button" value ="DELETE" onclick="lomme.display.value= ''" id ="del">
+        <img src="BILDER/knap.png" width="60" lang="60" alt="DELETE"/>
+        </button>
+        <br> <br>
+        <input type="button" class="btn btn-default btn" value="." onclick="lomme.display.value+='.'"" style="width:50">
+        <input type="button" class="btn btn-default btn" value="9" onclick="lomme.display.value+='9'" style="width:50">
+        <input type="button" class="btn btn-default btn" value="8" onclick="lomme.display.value+='8'"" style="width:50">
+        <input type="button" class="btn btn-default btn" value="7" onclick="lomme.display.value+='7'"" style="width:50">
+        <input type="button"class="btn btn-default btn" " value="+" onclick="lomme.display.value+='+'"" style="width:50"><br>
+        <input type="button" class="btn btn-default btn" value="(" onclick="lomme.display.value+='('"" style="width:50">
+        <input type="button" class="btn btn-default btn" value="6" onclick="lomme.display.value+='6'"" style="width:50">
+        <input type="button" class="btn btn-default btn" value="5" onclick="lomme.display.value+='5'"" style="width:50";>
+        <input type="button" class="btn btn-default btn" value="4" onclick="lomme.display.value+='4'"" style="width:50">        
+        <input type="button" class="btn btn-default btn" value="-" onclick="lomme.display.value+='-'"" style="width:50"><br>
+        <input type="button" class="btn btn-default btn" value=")" onclick="lomme.display.value+=')'"" style="width:50">
+        <input type="button" class="btn btn-default btn" value="3" onclick="lomme.display.value+='3'"" style="width:50"> 
+        <input type="button" class="btn btn-default btn" value="2" onclick="lomme.display.value+='2'"" style="width:50">
+        <input type="button" class="btn btn-default btn" value="1" onclick="lomme.display.value+='1'"" style="width:50"> 
+        <input type="button" class="btn btn-default btn" value="/" onclick="lomme.display.value+='/'"" style="width:50"><br>
+        <input type="button" class="btn btn-default btn" value="*" onclick="lomme.display.value+='*'"" style="width:50">                
+        <input type="button" class="btn btn-default btn" value="0" onclick="lomme.display.value+='0'"" style="width:105">  
+        <input type="button" class="btn btn-default btn" value="%" onclick="lomme.display.value+='%'"" style="width:50">
+        <input type="button" class="btn btn-default btn" value ="=" onclick="result()"" style="width:50">
+        </div>
+        </div>
+        </center>
+        
+    </form>
+</body>
+
+</html> 
